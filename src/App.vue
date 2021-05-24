@@ -1,39 +1,31 @@
-<template> 
-  
-
-  <h1>{{title}}</h1>
-  <!--子元件Modal有兩個屬性: header & text-->
-  <Modal :header="header" text="text"/>
-
-
-  
+<template>
+  <h1>{{ title }}</h1>
+  <div v-if="showModal">
+    <!--子元件Modal有兩個屬性: header & text-->
+    <Modal :header="header" :text="text" theme="sale" />
+  </div>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
-
+import Modal from "./components/Modal.vue";
 
 export default {
-  name: 'App',
-  components:{Modal},
-  data(){
-    return{
-      title: 'My First Vue App :)',
-      header:'Sign up for the Giveaway',
-      text:'have a good day :)'
-    }
-    
+  name: "App",
+  components: { Modal },
+  data() {
+    return {
+      title: "My First Vue App :)",
+      header: "Sign up for the Giveaway",
+      text: "have a good day :)",
+      showModal:false
+    };
   },
-  methods:{
-     
-  }
-  
-}
+  methods: {},
+};
 </script>
 
 <style>
- 
-#app { 
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,7 +34,7 @@ export default {
   margin-top: 60px;
 }
 
-h1{
+h1 {
   color: red;
   border-bottom: 1px solid #ddd;
   display: inline-block;

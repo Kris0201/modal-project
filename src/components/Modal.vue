@@ -1,6 +1,7 @@
 <template>
     <div class="backdrop">
-        <div class="modal">
+        <div class="modal" :class="{sale: theme==='sale'}">
+            <!--:class="{sale: theme===sale}"表示動態綁定一個class，而是否加上sale這個class的條件是 theme===sale的值為true的時候，若為false則不加上sale這個class-->
             <h1>{{header}}</h1>
             <p>{{text}}</p>
         </div>
@@ -11,7 +12,7 @@
 <script>
 //將父元件中設定透過prop傳給Modal子元件
 export default ({
-    props:['header', 'text']
+    props:['header', 'text', 'theme']
 })
 </script>
 
@@ -39,6 +40,16 @@ export default ({
     color: lightgreen;
     border: none;
     padding: 0;
+}
+
+.modal.sale{
+    background: rgb(248, 154, 120);
+    text-shadow: 0.1em 0.1em 0.2em rgb(245, 120, 4)
+}
+
+.modal.sale p{
+    color: white;
+    text-shadow:none;
 }
 
 </style>
