@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop" @click="closeModal">
+  <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <!--:class="{sale: theme===sale}"表示動態綁定一個class，而是否加上sale這個class的條件是 theme===sale的值為true的時候，若為false則不加上sale這個class-->
       <h1>{{ header }}</h1>
