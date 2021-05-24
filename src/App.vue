@@ -4,6 +4,8 @@
     <!--子元件Modal有兩個屬性: header & text-->
     <Modal :header="header" :text="text" theme="sale" />
   </div>
+  <br>
+  <button @click="toggleModal">open Modal</button>
 </template>
 
 <script>
@@ -17,10 +19,14 @@ export default {
       title: "My First Vue App :)",
       header: "Sign up for the Giveaway",
       text: "have a good day :)",
-      showModal:false
+      showModal: false,
     };
   },
-  methods: {},
+  methods: {
+    toggleModal() {
+      this.showModal=!this.showModal
+    },
+  },
 };
 </script>
 
