@@ -1,13 +1,12 @@
 <template> 
-  <!-- template是Vue的標籤，為每個元件的基本要件 -->
+  
 
   <h1>{{title}}</h1>
   <!--子元件Modal有兩個屬性: header & text-->
-  <Modal header='Sign up for the Giveaway' text='have a good day :)'/>
+  <Modal :header="header" text="text"/>
 
 
-  <!-- <input type="text" ref="name">
-  <button @click="handleClick">click me</button> -->
+  
 </template>
 
 <script>
@@ -19,23 +18,21 @@ export default {
   components:{Modal},
   data(){
     return{
-      title: 'My First Vue App :)'
+      title: 'My First Vue App :)',
+      header:'Sign up for the Giveaway',
+      text:'have a good day :)'
     }
     
   },
   methods:{
-      // handleClick(){
-      //   console.log(this.$refs.name)
-      //   this.$refs.name.classList.add('active')
-      //   this.$refs.name.focus()
-      // }
+     
   }
   
 }
 </script>
 
 <style>
- /*在每個component中的style設定會使所有元件中相同的元素或標籤吃到相同設定*/ 
+ 
 #app { 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
