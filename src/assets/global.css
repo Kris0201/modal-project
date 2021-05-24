@@ -1,0 +1,9 @@
+/*此css將導入main.js中，作為控制所有元件共用的css設定*/
+
+body{
+    margin: 0;
+}
+
+h1{
+    font-style: italic;
+}
