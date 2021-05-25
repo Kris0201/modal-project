@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  //props：將父元件中設定透過prop傳給Modal子元件
+  //props：將父元件中的設定透過prop傳給Modal子元件
   props: ["header", "text", "theme"],
 
   methods: {
