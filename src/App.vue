@@ -2,7 +2,12 @@
   <h1>{{ title }}</h1>
   <div v-if="showModal">
     <!--子元件Modal有兩個屬性: header & text-->
-    <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>
+    <Modal theme="sale" @close="toggleModal">
+      <!-- 可在此寫template (slots) ，此處資訊會傳至子元件標有<slot></slot>的區域中-->
+      <h1>Ninjia Giveaway!</h1>
+      <p>Grab your ninjia swag for half price!</p>
+    </Modal>
+
     <!--
       1. @close=""是從子元件emit來的，父元件會對其進行監聽，並在事件被觸發時去執行(fire)@close=""內的程式。
       2. 本例中目的為「點擊灰色區域後要關掉Modal，而因為其指令目的與父元件中的button效用一樣，故寫成@close="toggleModal"，等於子元件的closeModal函式要在點擊後去呼叫父元件中的toggleModal這個程式
@@ -21,8 +26,6 @@ export default {
   data() {
     return {
       title: "My First Vue App :)",
-      header: "Sign up for the Giveaway",
-      text: "have a good day :)",
       showModal: false,
     };
   },

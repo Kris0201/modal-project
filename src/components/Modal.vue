@@ -4,8 +4,8 @@
       <!--:class="{sale: theme===sale}"表示動態綁定一個class，而是否加上sale這個class的條件是 theme===sale的值為true的時候，若為false則不加上sale這個class-->
 
       <!--修飾符.self：在.backdrop的@click加上修飾符.self，目的在於阻止點擊到modal的橘色區域時關閉整個modal。.self 的作用只會觸發元素自己(.backdrop)的事件行為，由子層元素(.modal)傳遞來的事件(即冒泡的事件傳遞)則不會觸發-->
-      <h1>{{ header }}</h1>
-      <p>{{ text }}</p>
+      
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <script>
 export default {
   //props：將父元件中的設定透過prop傳給Modal子元件
-  props: ["header", "text", "theme"],
+  props: ["theme"],
 
   methods: {
     //custom events：將子元件中設定的事件emit(發射)給父元件，使父元件對此事件可進行監聽，close為自訂的事件名稱：本例目的為對灰色區域點擊後關掉Modal
