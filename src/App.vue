@@ -1,11 +1,15 @@
 <template>
   <h1>{{ title }}</h1>
   <div v-if="showModal">
-    <!--子元件Modal有兩個屬性: header & text-->
+    
     <Modal theme="sale" @close="toggleModal">
       <!-- 可在此寫template (slots) ，此處資訊會傳至子元件標有<slot></slot>的區域中-->
       <h1>Ninjia Giveaway!</h1>
       <p>Grab your ninjia swag for half price!</p>
+      <template v-slot:links>
+        <!-- slot拆分：在Modal元件中的a連結想要另外呈現在子元件的 .action中而非<slot></slot>範圍內 -->
+        <a href="https://www.google.com/">Hello, Google</a>
+      </template>
     </Modal>
 
     <!--
