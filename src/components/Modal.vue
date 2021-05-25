@@ -2,6 +2,8 @@
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <!--:class="{sale: theme===sale}"表示動態綁定一個class，而是否加上sale這個class的條件是 theme===sale的值為true的時候，若為false則不加上sale這個class-->
+
+      <!--修飾符.self：在.backdrop的@click加上修飾符.self，目的在於阻止點擊到modal的橘色區域時關閉整個modal。.self 的作用只會觸發元素自己(.backdrop)的事件行為，由子層元素(.modal)傳遞來的事件(即冒泡的事件傳遞)則不會觸發-->
       <h1>{{ header }}</h1>
       <p>{{ text }}</p>
     </div>
