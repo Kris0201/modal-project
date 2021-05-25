@@ -3,7 +3,10 @@
   <div v-if="showModal">
     <!--子元件Modal有兩個屬性: header & text-->
     <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>
-    <!--@click=""是從子元件emit來的，其目的為「點擊灰色區域後要關掉Modal，而因為其指令目的與父元件中的button效用一樣，故寫成@click="toggleModal"，等於子元件的closeModal函式要在點擊後去呼叫父元件中的toggleModal這個程式-->
+    <!--
+      1. @close=""是從子元件emit來的，父元件會對其進行監聽，並在事件被觸發時去執行(fire)@close=""內的程式。
+      2. 本例中目的為「點擊灰色區域後要關掉Modal，而因為其指令目的與父元件中的button效用一樣，故寫成@close="toggleModal"，等於子元件的closeModal函式要在點擊後去呼叫父元件中的toggleModal這個程式
+      -->
   </div>
   <br>
   <button @click="toggleModal">open Modal</button>

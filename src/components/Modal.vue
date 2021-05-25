@@ -15,7 +15,7 @@ export default {
   props: ["header", "text", "theme"],
 
   methods: {
-    //emit events：將子元件中的設定透過emit events傳給父元件--對灰色區域點擊後關掉Modal，close為自訂名稱
+    //custom events：將子元件中設定的事件emit(發射)給父元件，使父元件對此事件可進行監聽，close為自訂的事件名稱：本例目的為對灰色區域點擊後關掉Modal
     closeModal() {
       this.$emit("close");
     },
