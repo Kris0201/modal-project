@@ -1,13 +1,15 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
-    <div class="modal" :class="{ sale: theme === 'sale' }">
-      <!--:class="{sale: theme===sale}"表示動態綁定一個class，而是否加上sale這個class的條件是 theme===sale的值為true的時候，若為false則不加上sale這個class-->
+    <!--修飾符.self：@click加上修飾符.self，.self 的作用只會觸發元素自己(.backdrop)的事件行為，由子層元素(.modal)傳遞來的事件(即冒泡的事件傳遞)則不會觸發-->
 
-      <!--修飾符.self：在.backdrop的@click加上修飾符.self，目的在於阻止點擊到modal的橘色區域時關閉整個modal。.self 的作用只會觸發元素自己(.backdrop)的事件行為，由子層元素(.modal)傳遞來的事件(即冒泡的事件傳遞)則不會觸發-->
+    <div class="modal" :class="{ sale: theme === 'sale' }">
+      <!--:class="{sale: theme===sale}"表示動態綁定class-->
 
       <slot></slot>
-      <div class="action">
-        <!-- slot拆分 -->
+      <!-- <slot></slot>會去讀取並渲染出寫在<Modal></Modal>中的內容，因此如果在<slot></slot>中寫任何東西都不會被讀取，除非在<Modal></Modal>裡面沒有預設，才會讀取寫在<slot></slot>的內容 -->
+
+      <div class="actions">
+        <!-- 具名slot：會去讀取擁有 v-slot且相對應名稱的slot -->
         <slot name="links"></slot>
       </div>
     </div>
@@ -64,4 +66,29 @@ export default {
   color: white;
   text-shadow: none;
 }
+
+.modal .actions{
+  text-align: center;
+  margin: 30px 0 10px 0;
+  
+}
+.modal .actions a{
+  color: blueviolet;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.modal.sale .actions{
+  color: white;
+}
+
+.modal.sale .actions a{
+  color: white;
+}
+
+
+
 </style>
