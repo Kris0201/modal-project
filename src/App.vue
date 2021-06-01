@@ -7,7 +7,11 @@
       <h1>Ninjia Giveaway!</h1>
       <p>Grab your ninjia swag for half price!</p>
       <template v-slot:links>
-        <!-- slot拆分：在Modal元件中的a連結想要另外呈現在子元件的 .action中而非<slot></slot>範圍內 -->
+       
+        <!-- 
+          1. 具名slot：在Modal元件中的a連結想要另外呈現在子元件的 .action中而非<slot></slot>範圍內
+          2. v-slot只能與template標籤搭配使用。
+          3. 不具名的slot會被預設為default名稱，因此可利用<template #default>或<template v-slot:default>來指定尚未提供name 的slot區塊 -->
         <a href="https://www.google.com/">Hello, Google</a>
       </template>
     </Modal>
